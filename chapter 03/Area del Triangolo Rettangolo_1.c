@@ -1,8 +1,8 @@
-/*
+/******************************************************************************************************************
 Sia dato un triangolo rettangolo di cui sono note le lunghezze (intere) dei tre lati a, b e c.
 Si scriva un programma C che legga le lunghezze dei tre lati, determini quale dei lati sia l'ipotenusa e calcoli
 l'area del triangolo.
-*/
+*******************************************************************************************************************/
 
 #include <math.h>
 #include <stdio.h>
