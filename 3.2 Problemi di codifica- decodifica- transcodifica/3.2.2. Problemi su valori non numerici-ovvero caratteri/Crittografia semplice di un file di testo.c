@@ -12,3 +12,32 @@ complemento-a-'Z'
 minuscola e la codifica ch così ottenuta viene trasformata nella codifica
 complement-a-'z'
 ****************************************************************************/
+
+#include <stdio.h>
+
+#define MAXRIGA 10
+
+int main(void)
+{
+    char ch, nomefile[MAXRIGA];
+    FILE *fpin, *fpout;
+
+    printf("nome file in ingresso: ");
+    scanf("%s", nomefile);
+    fpin = fopen(nomefile, "r");
+    printf("nome file in uscita: ");
+    scanf("%s", nomefile);
+    fpout = fopen(nomefile, "w");
+
+    while (fscanf(fpin, "%c", &ch) == 1) {
+        if (ch >= '0' && ch <= '9')
+            ch = '0'+ ('9' - ch);
+        else if (ch >= 'a' && ch <= 'z')
+            ch = 'A' + ('z' - ch);
+        else if (ch >= 'A' && ch <= 'Z')
+            ch = 'a' + ('Z' - ch);
+        fprintf(fpout, "%c", ch);
+    }
+
+    fclose(fpin); fclose(fpout);
+}
