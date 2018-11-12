@@ -14,3 +14,59 @@ sono i seguenti:
   parametro il resto della stringa
 - ogni altro carattere selettore va segnalato come errato
 *********************************************************************************/
+
+#include <stdio.h>
+#include <ctype.h>
+
+void menuCarattere(void);
+void fA(char s[]);
+void fL(char s[]);
+void fT(char s[]);
+
+int main(void)
+{
+    menuCarattere();
+}
+
+void menuCarattere(void)
+{
+    const int MAXL = 51;
+    char riga[MAXL];
+    int i, continua = 1;
+
+    while(continua)
+    {
+        printf("comando (A/L/T, U=uscita): ");
+        gets(riga);
+        for(i = 0; riga[i] == ' '; i++)
+        {
+            switch(toupper(riga[i]))
+            {
+                case 'A': fA(&riga[i+1]);
+                    break;
+                case 'L': fL(&riga[i+1]);
+                    break;
+                case 'T': fT(&riga[i+1]);
+                    break;
+                case 'U': continua = 0;
+                    break;
+                default: printf("comando errato\n");
+            }
+        }
+    }
+}
+
+void fA(char s[])
+{
+    printf("Questa è la funzione fA\n");
+}
+
+void fL(char s[])
+{
+    printf("Questa è la funzione fL\n");
+}
+
+void fT(char s[])
+{
+    printf("Questa è la funzione fT\n");
+}
